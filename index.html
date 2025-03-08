@@ -165,6 +165,31 @@
     
                     <!-- ✅ Submit Button -->
                     <button type="submit" class="btn">Submit</button>
+                     <!-- ✅ ✅ ✅ 💯 ADDING YOUR SCROLL REVEAL SCRIPT 💯 ✅ ✅ ✅ -->
+                     <script>
+                        window.addEventListener('scroll', reveal);
+                      
+                        function reveal() {
+                          let sections = document.querySelectorAll('section');
+                      
+                          for (let i = 0; i < sections.length; i++) {
+                            let windowHeight = window.innerHeight;
+                            let elementTop = sections[i].getBoundingClientRect().top;
+                            let elementVisible = 150;
+                      
+                            if (elementTop < windowHeight - elementVisible) {
+                              sections[i].classList.add('reveal');
+                            } else {
+                              sections[i].classList.remove('reveal');  // This keeps the effect clean
+                            }
+                          }
+                        }
+                      
+                        // ✅ Prevent the page from scrolling down automatically on load
+                        window.scrollTo(0, 0);
+                      </script>
+                      
+                      
                 </form>
             </div>
         </div>

@@ -483,3 +483,110 @@ h2:hover {
 section {
   transition: all 0.5s ease;
 }
+/* ================================= */
+/* ✅ Text Motion Effects For Intro */
+/* ================================= */
+
+.intro-text h1 span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.2s forwards;
+}
+
+/* ✅ Typing Animation For "Cybersecurity Engineer" */
+.intro-text span.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #00f0ff;
+  width: 0;
+  animation: 
+    fadeInUp 1.2s forwards,
+    typing 3s steps(30, end) 1.2s forwards,
+    blink-caret 0.5s step-end infinite;
+}
+
+/* ✅ Glitch Effect For "Cybersecurity Engineer" */
+.intro-text span.typing-animation:hover {
+  animation: glitch 0.2s infinite;
+}
+
+/* ✅ Typing Effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* ✅ Cursor Blinking Effect */
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+}
+
+/* ✅ Glitch Effect */
+@keyframes glitch {
+  0% { text-shadow: 4px 4px #00f0ff; }
+  25% { text-shadow: -4px -4px #7600ff; }
+  50% { text-shadow: 6px -6px #00c4ff; }
+  75% { text-shadow: -6px 6px #7600ff; }
+  100% { text-shadow: 4px 4px #00f0ff; }
+}
+
+/* ✅ Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================= */
+/* ✅ Smooth Image Zoom Animation */
+/* ================================= */
+.intro-image img {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.intro-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 60px 20px rgba(0, 240, 255, 0.9);
+}
+
+/* ================================= */
+/* ✅ Smooth Section Reveal On Scroll */
+/* ================================= */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When you scroll, the section will appear */
+section.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Smooth Scrolling Effect */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ✅ Glowing Hover Effect On Projects */
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.6);
+}
+
+/* ================================= */
+/* ✅ Button Glowing Effect On Hover */
+/* ================================= */
+.btn:hover {
+  box-shadow: 0 0 20px 5px #00f0ff;
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #00f0ff, #7600ff);
+}
+
