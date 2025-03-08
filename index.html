@@ -118,24 +118,51 @@
             <div class="contact-info">
                 <h2>Contact <span>Me</span></h2>
                 <p><strong>Email:</strong> jabeena377@gmail.com</p>
-                <p><strong>Phone:</strong> 9360179086</p>
+                <p><strong>Phone:</strong> +91 9360179086</p>
+                <p><strong>Location:</strong> Salem, Tamil Nadu, India</p>
+    
+                <!-- ✅ Social Links -->
                 <div class="social-links">
-                    <a href="https://github.com/ashrafali005"><i class="fab fa-github"></i></a>
-                    <a href="http://www.linkedin.com/in/redrose"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ashrafali005" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="http://www.linkedin.com/in/redrose" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+    
+                <!-- ✅ Google Maps Location (Salem) -->
+                <div class="map">
+                    <h3>Find Me Here</h3>
+                    <iframe 
+                        width="100%" 
+                        height="200" 
+                        frameborder="0" 
+                        style="border:0" 
+                        referrerpolicy="no-referrer-when-downgrade" 
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-FakeAPIKEY-1234&q=Salem,Tamil+Nadu+India"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
+    
+            <!-- ✅ Contact Form -->
             <div class="contact-form">
-                <form action="#">
-                    <input type="text" placeholder="Enter Your Name" required>
-                    <input type="email" placeholder="Enter Your Email" required>
-                    <input type="text" placeholder="Subject" required>
-                    <textarea placeholder="Your Message" required></textarea>
+                <form action="https://formsubmit.co/jabeena377@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="Enter Your Name" required>
+                    <input type="email" name="email" placeholder="Enter Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    
+                    <!-- ✅ Hidden Field to Redirect After Form Submission -->
+                    <input type="hidden" name="_next" value="https://ashrafali005.github.io/cybersecurity-portfolio/">
+                    
+                    <!-- ✅ Prevent Spam -->
+                    <input type="hidden" name="_captcha" value="false">
+    
+                    <!-- ✅ Submit Button -->
                     <button type="submit" class="btn">Submit</button>
                 </form>
             </div>
         </div>
     </section>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
