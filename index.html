@@ -117,8 +117,8 @@
         <div class="contact-content">
             <div class="contact-info">
                 <h2>Contact <span>Me</span></h2>
-                <p><strong>Email:</strong> jabeena377@gmail.com</p>
-                <p><strong>Phone:</strong> +91 9360179086</p>
+                <p><strong>Email:</strong> <a href="mailto:jabeena377@gmail.com" target="_blank">jabeena377@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+919360179086" target="_blank">+91 9360179086</a></p>
                 <p><strong>Location:</strong> Salem, Tamil Nadu, India</p>
     
                 <!-- ✅ Social Links -->
@@ -145,15 +145,22 @@
             <!-- ✅ Contact Form -->
             <div class="contact-form">
                 <form action="https://formsubmit.co/jabeena377@gmail.com" method="POST">
+                    <!-- ✅ Name -->
                     <input type="text" name="name" placeholder="Enter Your Name" required>
+    
+                    <!-- ✅ Email -->
                     <input type="email" name="email" placeholder="Enter Your Email" required>
+    
+                    <!-- ✅ Subject -->
                     <input type="text" name="subject" placeholder="Subject" required>
+    
+                    <!-- ✅ Message -->
                     <textarea name="message" placeholder="Your Message" required></textarea>
+    
+                    <!-- ✅ Hidden Field to Redirect After Submission -->
+                    <input type="hidden" name="_next" value="https://ashrafali005.github.io/Ashraf-ali-portfolio/">
                     
-                    <!-- ✅ Hidden Field to Redirect After Form Submission -->
-                    <input type="hidden" name="_next" value="https://ashrafali005.github.io/cybersecurity-portfolio/">
-                    
-                    <!-- ✅ Prevent Spam -->
+                    <!-- ✅ Prevent Captcha Verification -->
                     <input type="hidden" name="_captcha" value="false">
     
                     <!-- ✅ Submit Button -->
@@ -163,6 +170,3 @@
         </div>
     </section>
     
-    <script src="script.js"></script>
-</body>
-</html>
