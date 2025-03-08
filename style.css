@@ -589,4 +589,60 @@ html {
   transform: scale(1.05);
   background: linear-gradient(145deg, #00f0ff, #7600ff);
 }
+/* ✅ Attractive Map Section */
+.map {
+  text-align: center;
+  padding: 30px 0;
+  background: linear-gradient(135deg, #1f1f1f, #0a0a0a);
+  border-radius: 20px;
+  margin: 30px auto;
+  max-width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.map h3 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+/* ✅ Add Zoom Effect on Hover */
+.map-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Add a Neon Border Glow Effect */
+.map-container {
+  border: 5px solid transparent;
+  background-image: linear-gradient(#0a0a0a, #0a0a0a), 
+                    linear-gradient(135deg, #ff007f, #00d4ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* ✅ Responsive Map */
+@media (max-width: 768px) {
+  .map {
+      padding: 20px 0;
+  }
+
+  .map h3 {
+      font-size: 18px;
+  }
+
+  .map-container iframe {
+      height: 250px;
+  }
+}
 
