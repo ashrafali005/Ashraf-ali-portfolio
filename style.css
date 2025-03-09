@@ -645,4 +645,32 @@ html {
       height: 250px;
   }
 }
+.thank-you-message {
+  display: none;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.thank-you-message.show {
+  display: block;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ✅ Animation for Thank You Message */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
 

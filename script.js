@@ -48,3 +48,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+<script>
+    function showThankYou(event) {
+        Event.preventDefault();
+
+        // ✅ Hide the form
+        document.querySelector('.contact-form form').style.display = 'none';
+
+        // ✅ Show the Thank You message
+        document.getElementById('thankYouMessage').classList.add('show');
+
+        // ✅ Reset the form after 5 seconds (optional)
+        setTimeout(() => {
+            document.querySelector('.contact-form form').reset();
+            document.querySelector('.contact-form form').style.display = 'block';
+            document.getElementById('thankYouMessage').classList.remove('show');
+        }, 5000);
+
+        // ✅ Automatically submit the form
+        event.target.submit();
+    }
+</script>
+
