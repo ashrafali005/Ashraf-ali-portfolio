@@ -6,14 +6,18 @@
     <title>Ashraf Ali I | Cybersecurity Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#Certifications">About</a></li>
+                <li><a href="#Education">Certifications</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -23,8 +27,8 @@
 
     <section class="intro">
         <div class="intro-text">
-            <h1>Hello, I'm <br><span>ASHRAF ALI I</span><br><span class="typing-animation">Cybersecurity Engineer</span></h1>
-            <p>Cybersecurity student skilled in threat intelligence, incident response, and penetration testing.</p>
+            <h1>Hello, I'm <br><span>ASHRAF ALI I</span><br><span class="typing-animation">Cybersecurity Engineer  </span></h1>
+            <p> Cybersecurity student skilled in threat intelligence, incident response, and penetration testing.</p>
             <div class="social-links">
                 <a href="https://github.com/ashrafali005"><i class="fab fa-github"></i></a>
                 <a href="http://www.linkedin.com/in/redrose"><i class="fab fa-linkedin"></i></a>
@@ -43,157 +47,452 @@
         <div class="about-text">
             <h2>About <span>Me</span></h2>
             <h3>Cybersecurity Student | Cybersecurity Engineer Intern</h3>
-            <p>
-                Hi! I'm Ashraf Ali I, currently pursuing B.E. in Computer Science & Engineering (Cyber Security) at KSR Institute for Engineering and Technology.
+            <p> Hi! I'm Ashraf Ali I, currently pursuing B.E. in Computer Science & Engineering (Cyber Security) at KSR Institute for Engineering and Technology.
                 With a CGPA of 8.53, I am passionate about cybersecurity, specializing in threat detection, vulnerability management, and penetration testing.
-                I have interned at CubeAI Solutions, Pargavan Cyyber Solution, and Prodigy InfoTech, where I worked on penetration testing, deepfake analysis, and network security projects.
+                I have interned at CubeAI Solutions, Pargavan Cyber Solution, and Prodigy InfoTech, where I worked on penetration testing, deepfake analysis, and network security projects.
             </p>
-            <a href="#certifications" class="btn">View Certifications</a>
+            <a href="My cv" class="btn">View CV</a>
         </div>
     </section>
+    
+    <div class="education-container">
+        <h2 class="education-title"><span>MY</span> EDUCATION</h2> <!-- Corrected Position -->
+        
+        <div class="education-timeline">
+            <div class="flip-card left">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="/image/jay.png" alt="SSLC School Logo">
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Secondary School (SSLC)</h3>
+                        <p>JAY Matriculation School</p>
+                        <p>2019 - 2020</p>
+                        <p><strong>Percentage:</strong> 76%</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="timeline-line"></div> <!-- Horizontal Line -->
+        
+            <div class="flip-card right">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="image/jay 12th.jpg" alt="HSC School Logo">
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Higher Secondary (HSC)</h3>
+                        <p>JAY Matriculation Higher Secondary School</p>
+                        <p>2021 - 2022</p>
+                        <p><strong>Percentage:</strong> 84%</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="timeline-line"></div> <!-- Horizontal Line -->
+    
+            <div class="flip-card left">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="/image/ksr.png" alt="College Logo">
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Bachelor's Degree in CSE(cyber security)</h3>
+                        <p>KSR Institute of Engineering and Technology</p>
+                        <p>2022 - Present</p>
+                        <p><strong>CGPA:</strong> Ongoing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <section class="experience" id="experience">
+        <h2><span>My</span> Experience</h2>
+        <div class="experience-container">
+            <!-- CubeAI Solutions Experience -->
+            <div class="experience-box">
+                <img src="/image/cube.jpg" alt="CubeAI Solutions" class="experience-img">
+                <h3>Cybersecurity Engineer Intern</h3>
+                <p>Worked on penetration testing, vulnerability assessment, and security audits to improve system security.</p>
+                <a href="images/cubeai-certificate.jpg" view class="btn">view </a>
+            </div>
+    
+            <!-- Pargavan Cyber Solution Experience -->
+            <div class="experience-box">
+                <img src="/image/pargavan.png" alt="Pargavan Cyber Solution" class="experience-img">
+                <h3>Cybersecurity Analyst Intern</h3>
+                <p>Engaged in deepfake analysis, risk mitigation strategies, and threat intelligence research.</p>
+                <a href="/image/pargavan.pdf" view class="btn">view </a>
+            </div>
+    
+            <!-- Prodigy InfoTech Experience -->
+            <div class="experience-box">
+                <img src="/image/prodigy.png" alt="Prodigy InfoTech" class="experience-img">
+                <h3>Cybersecurity Intern</h3>
+                <p>Conducted network security assessments and contributed to security awareness initiatives.</p>
+                <a href="/image/pordigy.pdf"view class="btn">view </a>
+                <br>
+                <p>Letter of Recommendation </p>
+                <a href="/image/Letter of Recommendation.pdf" view class="btn">view </a>
+            </div>
+             
+    
+            <!-- Thinkinfo expert solutions Experiance -->
+            <div class="experience-box">
+                <img src="/image/Thinkinfoexpertsolutions-logo.png" alt="AICTE Internship" class="experience-img">
+                <h3>Cyber Security Analyst Intern - AICTE</h3>
+                <p>Completed an 8-week internship focusing on cybersecurity analysis and risk assessment.</p>
+                <a href="/image/think certificate.jpeg" view class="btn">view</a>
+            </div>
+        </div>
+    </section>
+    
 
-    <section class="services" id="services">
-        <h2>My <span>Expertise</span></h2>
+    <section class="services" id="skills">
+        <h2><span>My</span> Skills</h2>
         <div class="services-container">
             <div class="service-box">
-                <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Network Security</h3>
-                <p>Implementing robust firewalls, VPNs, and IDS/IPS systems.</p>
-                <a href="#projects" class="btn">Learn More</a>
+                <div class="service-icon">🛡️</div>
+                <h3>Cybersecurity</h3>
+                <p>Penetration Testing, Vulnerability Analysis, Ethical Hacking.</p>
             </div>
             <div class="service-box">
-                <div class="service-icon"><i class="fas fa-user-secret"></i></div>
-                <h3>Ethical Hacking</h3>
-                <p>Proficient in penetration testing using Kali Linux and Metasploit.</p>
-                <a href="#projects" class="btn">Learn More</a>
+                <div class="service-icon">💻</div>
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript, Responsive Design.</p>
             </div>
             <div class="service-box">
-                <div class="service-icon"><i class="fas fa-lock"></i></div>
-                <h3>Application Security</h3>
-                <p>Secure code reviews and implementing best practices.</p>
-                <a href="#projects" class="btn">Learn More</a>
+                <div class="service-icon">🌐</div>
+                <h3>Networking</h3>
+                <p>Network Security, Firewall Configuration, Packet Analysis.</p>
+            </div>
+            <div class="service-box">
+                <div class="service-icon">👨‍💻</div>
+                <h3>Programming</h3>
+                <p>Java, Python, SQL, C.</p>
             </div>
         </div>
     </section>
-<div class="projects-section" id="projects">
+    
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Achievements</title>
+        <link rel="stylesheet" href="styles.css?v=2">
+    </head>
+    <body>
+    
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements Section</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to CSS -->
+</head>
+<body>
+
+  <!-- Achievements Section -->
+  <section class="achievements" id="achievements">
+    <h2><span>MY</span> Achievements</h2>
+    <div class="achievements-container">
+
+      <!-- Flip Card 1 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>🥇 Think You're the Best? Flip to Find Out!</h3>
+          </div>
+          <div class="flip-card-back"> 
+            <h3>🥇 Best Student Award - IIE</h3>
+            <p>Recognized for excellence in deepfake analysis and risk mitigation.</p>
+            <button class="reveal-button" data-image="/image/best.jpg">Reveal</button>
+          </div>
+        </div>
+      </div>
+
+    <!-- Flip Card 2 -->
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h3>📄 Presented Research? Flip to See More!</h3>
+      </div>
+      <div class="flip-card-back">
+        <h3>📄 IEEE National Conference - KIOT</h3>
+        <p>Presented a research paper at the IEEE National Level Conference.</p>
+        <button class="reveal-button" data-image="/image/kiot.jpg">Reveal</button>
+      </div> 
+    </div>
+</div>
+
+<!-- Flip Card 3 -->
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h3>🏆 Achievements Unlocked! Flip to See More!</h3>
+      </div>
+      <div class="flip-card-back">
+        <h3>🏆 National Level Symposium Winner</h3>
+        <p>1st Prize - Project | 2nd Prize - Paper</p>
+        <button class="reveal-button" data-image="/image/sarathy.jpg">Reveal</button>
+      </div>
+    </div>
+  </div>
+  <!-- Flip Card 4 -->
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h3>🌍 Mastered a New Language? Flip to See!</h3>
+      </div>
+      <div class="flip-card-back">
+        <h3>🌍 Japanese Language Certification</h3>
+        <p>Completed a 60-hour beginner’s course in Japanese.</p>
+        <button class="reveal-button" data-image="/image/japan.jpg">Reveal</button>
+      </div>
+    </div>
+  </div>
+  
+   </div>
+  </section>
+
+  <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
+
+        
+<section class="Glimpses" id="Glimpses">
+    <h2 class="glimpses-title"><span>MY</span> GLIMPSES</h2>
+    <div class="timeline">
+        <div class="vertical-line"></div>  <!-- Vertical Line -->
+        <div class="my-glimpses-container">
+            
+<!-- Symposium Card 1 -->
+<div class="flip-card-wrapper left">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="image/me.jpg" alt="Symposium 1">
+            </div>
+            <div class="flip-card-back">
+                <h3>Coordinator - CIVA Association</h3>
+                <p>Organized and conducted a Project Expo during the symposium.</p>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- Symposium Card 2 -->
+       <div class="flip-card-wrapper right">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="symposium2.jpg" alt="Symposium 2">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Guest Speaker - CyberSec Meet</h3>
+                            <p>Presented a session on Penetration Testing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Symposium Card 3 -->
+            <div class="flip-card-wrapper left">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="symposium3.jpg" alt="Symposium 3">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Runner-Up - CTF Competition</h3>
+                            <p>Achieved 2nd place in Capture The Flag challenge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Symposium Card 4 -->
+            <div class="flip-card-wrapper right">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="symposium4.jpg" alt="Symposium 4">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Security Research Paper</h3>
+                            <p>Published a research paper on Web Security.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+  <section class="projects-section" id="projects">
         <h2>Cybersecurity <span>Projects</span></h2>
         <div class="projects-container">
-    
-            <!-- ✅ Project 1 -->
             <div class="project-card">
                 <img src="image/ceaser cipher.webp" alt="Ceaser Cipher">
                 <h3>Ceaser Cipher</h3>
                 <p>This project is used to convert the plain text to ciphertext using Caesar Cipher algorithm.</p>
                 <a href="https://github.com/ashrafali005/caesar_cipher.git" class="btn" target="_blank">View Project</a>
             </div>
-    
-            <!-- ✅ Project 2 -->
             <div class="project-card">
                 <img src="image/pixel.webp" alt="Pixel Manipulation for Image Encryption">
                 <h3>Pixel Manipulation for Image Encryption</h3>
                 <p>This project manipulates image pixels to encrypt images securely.</p>
                 <a href="https://github.com/ashrafali005/Pixel-Manipulation-for-Image-Encryption.git" class="btn" target="_blank">View Project</a>
             </div>
-    
-            <!-- ✅ Project 3 -->
             <div class="project-card">
                 <img src="image/password checker.webp" alt="Password Complexity Checker">
                 <h3>Password Complexity Checker</h3>
                 <p>This project checks the complexity of passwords and ensures high-level security.</p>
                 <a href="https://github.com/ashrafali005/Password-Complexity-Checker.git" class="btn" target="_blank">View Project</a>
             </div>
-    
-            <!-- ✅ Project 4 -->
             <div class="project-card">
                 <img src="image/packet.webp" alt="Network Packet Analyzer">
                 <h3>Network Packet Analyzer</h3>
                 <p>This project analyzes network packets for cybersecurity monitoring.</p>
                 <a href="https://github.com/ashrafali005/Network-Packet-Analyzer.git" class="btn" target="_blank">View Project</a>
             </div>
+        </div>
+    </section>
+
+    <section class="certifications" id="certifications">
+        <h2 class="certifications-title">MY CERTIFICATIONS</h2>
+        <div class="certification-container">
+    
+            <!-- Certificate 1 -->
+            <div class="cert-card" onclick="flipCard(this)">
+                <div class="cert-card-inner">
+                    <!-- Front Side -->
+                    <div class="cert-card-front">
+                        <img src="/image/palo.jpg" alt="Palo Alto Certificate">
+                        <h3>Cybersecurity Foundation</h3>
+                        <p>Palo Alto Networks Academy</p>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="cert-card-back">
+                        <iframe src="/image/palo.pdf" class="cert-pdf"></iframe>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Certificate 2 -->
+            <div class="cert-card" onclick="flipCard(this)">
+                <div class="cert-card-inner">
+                    <div class="cert-card-front">
+                        <img src="/image/cert2-thumbnail.jpg" alt="TCS Certificate">
+                        <h3>Cyber Analyst Job Simulation</h3>
+                        <p>TCS Certification</p>
+                    </div>
+                    <div class="cert-card-back">
+                        <iframe src="/image/cert2.pdf" class="cert-pdf"></iframe>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Certificate 3 -->
+            <div class="cert-card" onclick="flipCard(this)">
+                <div class="cert-card-inner">
+                    <div class="cert-card-front">
+                        <img src="/image/cert3-thumbnail.jpg" alt="IBM Certificate">
+                        <h3>Intro to Cyber Security</h3>
+                        <p>IBM Certification</p>
+                    </div>
+                    <div class="cert-card-back">
+                        <iframe src="/image/cert3.pdf" class="cert-pdf"></iframe>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Certificate 4 -->
+            <div class="cert-card" onclick="flipCard(this)">
+                <div class="cert-card-inner">
+                    <div class="cert-card-front">
+                        <img src="/image/cert4-thumbnail.jpg" alt="Cisco Certificate">
+                        <h3>Introduction to Data Science</h3>
+                        <p>Cisco Certification</p>
+                    </div>
+                    <div class="cert-card-back">
+                        <iframe src="/image/cert4.pdf" class="cert-pdf"></iframe>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Certificate 5 -->
+            <div class="cert-card last-card" onclick="flipCard(this)">
+                <div class="cert-card-inner">
+                    <div class="cert-card-front">
+                        <img src="/image/cert5-thumbnail.jpg" alt="Ethical Hacking Certificate">
+                        <h3>Ethical Hacking Mastery</h3>
+                        <p>Professional Certification</p>
+                    </div>
+                    <div class="cert-card-back">
+                        <iframe src="/image/cert5.pdf" class="cert-pdf"></iframe>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    
+    
+    <section class="interests" id="interests">
+        <h2><span>MY</span> AREAS OF INTEREST</h2>
+        <div class="interests-container">
+            <div class="interest-box">
+                <h3>Artificial Intelligence</h3>
+                <p>Exploring AI-driven cybersecurity solutions, anomaly detection, and automated threat intelligence.</p>
+            </div>
+            <div class="interest-box">
+                <h3>Data Science</h3>
+                <p>Using data analytics, pattern recognition, and statistical modeling for cybersecurity risk assessment.</p>
+            </div>
+            <div class="interest-box">
+                <h3>Cloud Computing</h3>
+                <p>Securing cloud environments, identity management, and threat prevention in cloud infrastructures.</p>
+            </div>
+            <div class="interest-box">
+                <h3>Blockchain Security</h3>
+                <p>Implementing decentralized security models, cryptographic techniques, and secure transactions.</p>
             </div>
         </div>
-    </div>
+    </section>
+    
+
+    
     <section class="contact" id="contact">
         <div class="contact-content">
             <div class="contact-info">
                 <h2>Contact <span>Me</span></h2>
-                <p><strong>Email:</strong> <a href="mailto:jabeena377@gmail.com" target="_blank">jabeena377@gmail.com</a></p>
-                <p><strong>Phone:</strong> <a href="tel:+919360179086" target="_blank">+91 9360179086</a></p>
-                <p><strong>Location:</strong> Salem, Tamil Nadu, India</p>
-    
-                <!-- ✅ Social Links -->
+                <p><strong>Email:</strong> <a href="mailto:jabeena377@gmail.com">jabeena377@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+919360179086">+91 9360179086</a></p>
+                <form action="https://formsubmit.co/jabeena377@gmail.com" method="POST">
                 <div class="social-links">
-                    <a href="https://github.com/ashrafali005" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="http://www.linkedin.com/in/redrose" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-    
-                <!-- ✅ Google Maps Location (Salem) -->
-                <div class="map">
-                    <h3>Find Me Here</h3>
-                    <iframe
-                        width="100%" 
-                        height="300" 
-                        frameborder="0" 
-                        style="border:0" 
-                        referrerpolicy="no-referrer-when-downgrade" 
-                        src="https://www.google.com/maps?q=Salem,+Tamil+Nadu,+India&output=embed"
-                        allowfullscreen>
-                    </iframe>
+                    <a href="https://github.com/ashrafali005"><i class="fab fa-github"></i></a>
+                    <a href="http://www.linkedin.com/in/redrose"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-    <!-- ✅ Contact Form -->
-<div class="contact-form">
-    <form action="https://formsubmit.co/jabeena377@gmail.com" method="POST">
-        <!-- ✅ Name -->
-        <input type="text" name="name" placeholder="Enter Your Name" required>
+            <div class="contact-form">
+                <form action="#">
+                    <input type="text" placeholder="Enter Your Name" required>
+                    <input type="email" placeholder="Enter Your Email" required>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        <!-- ✅ Email -->
-        <input type="email" name="email" placeholder="Enter Your Email" required>
+    <script src="script.js"></script>
+</body>
+</html>
 
-        <!-- ✅ Subject -->
-        <input type="text" name="subject" placeholder="Subject" required>
-
-        <!-- ✅ Message -->
-        <textarea name="message" placeholder="Your Message" required></textarea>
-
-        <!-- ✅ Hidden Field to Redirect After Submission -->
-        <input type="hidden" name="_next" value="https://ashrafali005.github.io/Ashraf-ali-portfolio/">
-        
-        <!-- ✅ Prevent Captcha Verification -->
-        <input type="hidden" name="_captcha" value="false">
-
-        <!-- ✅ Submit Button -->
-        <button type="submit" class="btn">Submit</button>
-    </form>
-</div>
-<div class="thank-you-message" id="thankYouMessage">
-    🎉 Thank you! Your message has been sent successfully. 💌  
-    <br><br>
-    I'll get back to you as soon as possible. 🚀
-</div>
-
-<!-- ✅ ✅ ✅ 💯 ADDING YOUR SCROLL REVEAL SCRIPT 💯 ✅ ✅ ✅ -->
-<script>
-  window.addEventListener('scroll', reveal);
-
-  function reveal() {
-    let sections = document.querySelectorAll('section');
-
-    for (let i = 0; i < sections.length; i++) {
-      let windowHeight = window.innerHeight;
-      let elementTop = sections[i].getBoundingClientRect().top;
-      let elementVisible = 150;
-
-      if (elementTop < windowHeight - elementVisible) {
-        sections[i].classList.add('reveal');
-      } else {
-        sections[i].classList.remove('reveal');  // This keeps the effect clean
-      }
-    }
-  }
-
-  // ✅ Prevent the page from scrolling down automatically on load
-  window.scrollTo(0, 0);
-</script>
-
-           

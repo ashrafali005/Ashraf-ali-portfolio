@@ -199,6 +199,120 @@ nav ul li a:hover {
   box-shadow: 0 0 30px 15px rgba(0, 240, 255, 0.4);
 }
 
+/* ✅ Education Section Container */
+.education-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* ✅ "MY EDUCATION" Heading Styling */
+.education-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #00f0ff;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  margin-bottom: 20px;
+  top: -40px; /* Moves title above timeline */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ✅ Remove blue underline from "MY EDUCATION" */
+.education-title::after {
+  display: none !important;
+}
+.education-title {
+  color: #ffffff; /* Change to white to match "MY EXPERIENCE" */
+}
+.education-title span {
+  color: #00f0ff; /* Make "MY" the same color as "MY" in EXPERIENCE */
+}
+
+
+/* ✅ Education Timeline - Aligning Cards */
+.education-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 40px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+  max-width: 1200px;
+  padding: 50px 0 20px; /* Prevent overlap */
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ✅ Hide scrollbar for Chrome, Safari */
+.education-timeline::-webkit-scrollbar {
+  display: none;
+}
+
+/* ✅ Small Connecting Lines Between Cards */
+.timeline-line {
+  height: 4px;
+  background: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+  width: 50px;
+  margin: 0 10px;
+  flex-shrink: 0;
+}
+
+/* ✅ Ensure logos fit properly inside the card */
+.flip-card-front img {
+  width: 100%;   /* Ensures the image fully utilizes card width */
+  height: 100%;  /* Ensures the image fully utilizes card height */
+  object-fit: cover; /* Adjusts the image to cover the entire card properly */
+  border-radius: 10px; /* Optional: Adds rounded corners for a cleaner look */
+}
+
+
+/* ✅ Flip Card Fix */
+.flip-card {
+  background: transparent;
+  width: 220px;
+  height: 220px;
+  perspective: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 768px) {
+  .education-title {
+    font-size: 24px;
+    top: -30px;
+  }
+
+  .education-timeline {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 30px;
+  }
+
+  .timeline-line {
+    width: 30px;
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
 /* Services Section */
 .services {
   padding: 100px 20px;
@@ -314,6 +428,339 @@ h2:hover {
   transition: 1s ease 0.3s;
 }
 
+/* Experience Section */
+.experience {
+  width: 80%;
+  margin: auto;
+  color: #fff;
+  text-align: center;
+}
+
+.experience h2 span,
+.certifications h2 span {
+  color: #00f0ff; /* Same color as "My Skills" */
+}
+
+.experience h2,
+.certifications h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  font-size: 2rem;
+}
+
+.experience h2:hover,
+.certifications h2:hover {
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+/* Containers */
+.experience-container,
+.certifications-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Experience Box */
+.experience-box {
+  background-color: #0a192f;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  width: 300px;
+  margin: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+}
+
+.experience-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Experience Image */
+.experience-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* General styles */
+body {
+  background-color: #0a192f;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Achievements Section */
+.achievements {
+  width: 80%;
+  margin: auto;
+  padding: 80px 0 50px 0;
+  text-align: center;
+}
+
+.achievements h2 {
+  text-transform: uppercase;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  font-size: 2rem;
+  transition: all 0.5s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.achievements h2 span {
+  color: #00f0ff;
+  font-weight: bold;
+}
+
+/* Container */
+.achievements-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Flip Card */
+.flip-card {
+  width: 250px;
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Flip effect (Only flips when class 'active' is added) */
+.flip-card.active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Flip Card Sides */
+.flip-card-front, .flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+/* Front Side */
+.flip-card-front {
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(0, 240, 255, 0.15));
+  border: 2px solid rgba(0, 240, 255, 0.6);
+}
+
+.flip-card-front h3 {
+  font-size: 18px;
+  color: #00f0ff;
+}
+
+/* Back Side */
+.flip-card-back {
+  background: url('assets/image.png') no-repeat center center;
+  background-size: cover;
+  border: 2px solid rgba(0, 240, 255, 0.6);
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  .flip-card-back {
+    pointer-events: auto; /* Ensures interactions are allowed */
+  }
+  
+}
+
+/* Overlay for readability */
+.flip-card-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  z-index: 0;
+}
+
+/* Text Above Overlay */
+.flip-card-back h3,
+.flip-card-back p {
+  position: relative;
+  z-index: 1;
+  color: #00f0ff;
+  text-align: center;
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+/* Button for Reveal */
+.reveal-button {
+  width: 50%;
+  padding: 6px 10px;
+  font-size: 12px;
+  background-color: #00f7ff;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-top: auto;
+}
+
+.reveal-button:hover {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.9);
+}
+
+.reveal-button {
+  position: relative; /* Ensures it is above any background */
+  z-index: 2; /* Places the button above other elements */
+  pointer-events: auto; /* Ensures it can be clicked */
+}
+
+
+/* Center the Glimpses section with a vertical timeline */
+.timeline {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Glimpses Title Styling */
+.glimpses-title {
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff; /* Set "GLIMPSES" to white */
+}
+
+.glimpses-title span {
+  color: #00f0ff; /* Make "MY" the same cyan color as in "MY EXPERIENCE" */
+}
+
+/* Vertical Line */
+.vertical-line {
+  position: absolute;
+  width: 3px; /* Cyberpunk look */
+  background-color: #00f7ff; /* Cyber Blue Theme */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Flip Cards Zig-Zag Layout */
+.my-glimpses-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Adjusted for better spacing */
+  position: relative;
+  width: 100%;
+}
+
+/* Flip Card Design */
+.flip-card {
+  width: 260px;
+  height: 180px;
+  perspective: 1000px;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(20px); /* Reduced distance */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Flip Card Wrapper for Positioning */
+.flip-card-wrapper {
+  display: flex;
+  justify-content: center; /* Center around the vertical line */
+  width: 100%;
+  position: relative;
+}
+
+/* Adjust Flip Card Positioning */
+.flip-card-wrapper:nth-child(odd) {
+  justify-content: flex-start; /* Move left-side cards closer */
+  padding-left: 30%;
+}
+
+.flip-card-wrapper:nth-child(even) {
+  justify-content: flex-end; /* Move right-side cards closer */
+  padding-right: 30%;
+}
+
+
+/* Move Cards Closer to Vertical Line */
+.flip-card.left {
+  align-self: flex-start;
+  transform: translateX(-30px); /* Fine-tuned position */
+}
+
+.flip-card.right {
+  align-self: flex-end;
+  transform: translateX(30px); /* Fine-tuned position */
+}
+
+/* Flip Card Reveal Animation */
+.flip-card.reveal {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* Smooth Entry Animation */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Delayed Animation for Each Card */
+.flip-card:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.2s forwards; }
+.flip-card:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.4s forwards; }
+.flip-card:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.6s forwards; }
+.flip-card:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.8s forwards; }
+
 /* Projects Section */
 .projects-section {
   width: 80%;
@@ -395,6 +842,224 @@ h2:hover {
   width: 100%;
   left: 0;
 }
+
+.certifications {
+  text-align: center;
+  padding: 50px;
+  color: white;
+  background: #0c2233;
+  overflow: hidden;
+}
+
+.certifications-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Certification Grid for Equal Sizing */
+.certification-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  padding: 20px 10px;
+  justify-content: center; /* Ensures proper alignment */
+}
+
+/* Certificate Card - All Cards Same Size */
+.cert-card {
+  background: #112b40;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px; /* Ensures all cards are the same width */
+  height: 400px; /* Fixed height for all cards */
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 255, 170, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.8s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ensuring Last Card Aligns Properly */
+.cert-card:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover Effect */
+.cert-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 255, 170, 0.5);
+}
+
+/* Image Styles */
+.cert-card img {
+  width: 100%;
+  height: 150px; /* Fixed height for images */
+  object-fit: cover; /* Ensures images fit well */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Content inside the Card */
+.cert-content {
+  padding: 15px;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards 0.5s;
+}
+
+.cert-content h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.cert-content p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Button */
+.cert-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #00f7ff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.cert-btn:hover {
+  background: #00ccff;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .certification-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid */
+  }
+}
+
+@media (max-width: 480px) {
+  .certification-container {
+    grid-template-columns: 1fr; /* Single column layout on small screens */
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+/* Areas of Interest Section */
+.interests {
+  width: 80%;
+  margin: auto;
+  color: #fff;
+  text-align: center;
+}
+
+/* Section heading */
+.interests h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  font-size: 2.5rem;
+  transition: all 0.5s ease-in-out;
+  color: #fff;
+}
+
+/* Style "MY" */
+.interests h2 span {
+  color: #00f0ff; /* Cyan highlight */
+  font-weight: bold;
+}
+
+/* Hover effect */
+.interests h2:hover {
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+/* Interests container */
+.interests-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Interest boxes */
+.interest-box {
+  background-color: rgba(10, 25, 47, 0.8);
+  border: 2px solid rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  border-radius: 15px;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+}
+
+.interest-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px 8px rgba(0, 240, 255, 0.5);
+}
+
+/* Title inside interest boxes */
+.interest-box h3 {
+  font-size: 22px;
+  color: #00f0ff;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* Description inside interest boxes */
+.interest-box p {
+  font-size: 15px;
+  color: #c4c4c4;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+
+
 
 /* Contact Section */
 .contact {
@@ -672,5 +1337,3 @@ html {
       transform: translateY(0);
   }
 }
-
-
