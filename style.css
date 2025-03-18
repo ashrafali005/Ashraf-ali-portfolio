@@ -23,6 +23,12 @@ header {
   padding: 20px 20px;
 }
 
+.typing-animation::after {
+  content: none !important;
+}
+
+
+
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -383,21 +389,22 @@ nav ul li a:hover {
 .service-box .btn:hover {
   background-color: #00cce7;
 }
-
 /* Skills Section */
 .skills-section {
   width: 80%;
   margin: auto;
   color: #fff;
+  text-align: center;
 }
 
+/* Section Title Styling */
 h2 {
   text-align: center;
   margin-bottom: 20px;
   text-transform: uppercase;
   border-bottom: 2px solid #fff;
   display: inline-block;
-  transition: all 0.5s ease-in-out; /* Smooth animation added */
+  transition: all 0.5s ease-in-out;
 }
 
 h2:hover {
@@ -405,29 +412,79 @@ h2:hover {
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
 }
 
-.skill-bar {
-  margin: 20px 0;
+/* Skills Container */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-.progress {
-  background-color: #333;
-  border-radius: 20px;
-  position: relative;
-  margin: 5px 0;
-  height: 25px;
-  width: 100%;
+/* Skill Cards */
+.skill-card {
+  background: rgba(0, 20, 40, 0.8); /* Dark blue transparent background */
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 250px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 240, 255, 0.2); /* Neon glow effect */
+  border: 1px solid rgba(0, 240, 255, 0.3); /* Subtle neon border */
 }
 
-.progress-done {
-  background: linear-gradient(to left, #00f260, #0575e6);
-  box-shadow: 0 3px 3px -5px #00f260, 0 2px 5px #0575e6;
-  border-radius: 20px;
-  color: #fff;
-  height: 100%;
-  width: 0;
-  opacity: 0;
-  transition: 1s ease 0.3s;
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
+/* Hover Effect */
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.5); /* More glow on hover */
+}
+
+/* Skills Title Styling */
+.skills-title {
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff; /* Set "SKILLS" to white */
+}
+
+.skills-title span {
+  color: #00f0ff; /* Make "MY" the same cyan color as in "MY EXPERIENCE" */
+}
+
+
+/* Skill Text Styling */
+h3 {
+  color: #00f0ff; /* Neon blue text */
+}
+
+p {
+  color: #b0e0ff; /* Lighter blue for better readability */
+}
+
+
+/* Skill Icons */
+.skill-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Text Styling */
+h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #00f0ff;
+}
+
+p {
+  font-size: 16px;
+  color: #ccc;
+}
+
 
 /* Experience Section */
 .experience {
