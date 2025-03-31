@@ -1,104 +1,109 @@
-// ✅ Typing Animation
- // ✅ Typing Animation (Without Cursor)
- const words = ["Cybersecurity Engineer", "Web Developer", "Ethical Hacker", "Network Security Expert"];
- let wordIndex = 0, charIndex = 0;
- const typingElement = document.querySelector(".typing-animation");
- 
- function type() {
-     if (charIndex < words[wordIndex].length) {
-         typingElement.textContent = words[wordIndex].substring(0, charIndex + 1);
-         charIndex++;
-         setTimeout(type, 200);
-     } else {
-         setTimeout(erase, 1500);
-     }
- }
- 
- function erase() {
-     if (charIndex > 0) {
-         typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
-         charIndex--;
-         setTimeout(erase, 100);
-     } else {
-         wordIndex = (wordIndex + 1) % words.length;
-         setTimeout(type, 500);
-     }
- }
- 
- document.addEventListener("DOMContentLoaded", () => {
-     setTimeout(type, 1000);
- });
- 
-// ✅ Skill Progress Bars
-document.addEventListener("DOMContentLoaded", function () {
+// Typing Animation
+const words = ["Cybersecurity Engineer", "Web Developer", "Ethical Hacker", "Network Security"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingElement = document.querySelector(".typing-animation");
+
+function type() {
+    if (!typingElement) return;
+
+    const currentWord = words[wordIndex];
+    const currentText = currentWord.substring(0, charIndex);
+
+    typingElement.textContent = currentText;
+
+    if (!isDeleting && charIndex < currentWord.length) {
+        // Typing forward
+        charIndex++;
+        setTimeout(type, 250);  // Slower typing speed
+    } else if (isDeleting && charIndex > 0) {
+        // Deleting (now even slower)
+        charIndex--;
+        setTimeout(type, 180);  // Slower deleting speed
+    } else {
+        // Switch between typing and deleting
+        isDeleting = !isDeleting;
+
+        if (!isDeleting) {
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+
+        setTimeout(type, isDeleting ? 2000 : 1200);  // Longer pauses
+    }
+}
+
+// Start the typing animation when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(type, 1200); // Slight delay before animation starts
+    initProgressBars();
+});
+
+// Skill Progress Bars (unchanged)
+function initProgressBars() {
     const progressBars = document.querySelectorAll(".progress-done");
     if (progressBars.length > 0) {
         progressBars.forEach((bar) => {
             const doneValue = bar.getAttribute("data-done");
-            bar.style.width = doneValue + "%";
-            bar.style.opacity = 1;
-            bar.style.transition = "width 1.5s ease-in-out, opacity 1s";
+            if (doneValue) {
+                bar.style.width = doneValue + "%";
+                bar.style.opacity = 1;
+                bar.style.transition = "width 1.5s ease-in-out, opacity 1s";
+            }
         });
     }
-});
+}
 
-// ✅ Prevent Page Scroll on Load
-window.onload = function () {
-    window.scrollTo(0, 0);
-};
 
 // ✅ Smooth Scroll for Sections
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// ✅ Contact Form Submission
-document.addEventListener("DOMContentLoaded", function () {
-    const contactForm = document.querySelector(".contact form");
-    if (!contactForm) return;
-
-    let thankYouMessage = document.querySelector(".thank-you-message");
-    if (!thankYouMessage) {
-        thankYouMessage = document.createElement("div");
-        thankYouMessage.className = "thank-you-message";
-        thankYouMessage.innerHTML = "Your message has been sent successfully!";
-        contactForm.parentNode.appendChild(thankYouMessage);
-    }
-
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const formData = new FormData(contactForm);
-
-        fetch(contactForm.action, {
-            method: "POST",
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                thankYouMessage.style.display = "block";
-                contactForm.reset();
-                setTimeout(() => {
-                    thankYouMessage.style.display = "none";
-                }, 5000);
-            } else {
-                alert("Failed to send message. Please try again.");
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
-        })
-        .catch(error => {
-            console.error("Form submission error:", error);
-            alert("Something went wrong.");
         });
     });
-});
+}
+
+// ✅ Contact Form
+function initContactForm() {
+    const form = document.getElementById("contactForm");
+    const responseMessage = document.getElementById("responseMessage");
+
+    if (form && responseMessage) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            responseMessage.textContent = "Sending...";
+
+            try {
+                const res = await fetch("https://your-backend-endpoint.com/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await res.json();
+                responseMessage.textContent = result.message || "Message sent!";
+                form.reset();
+            } catch (error) {
+                console.error("Error:", error);
+                responseMessage.textContent = "Failed to send message. Try again.";
+            }
+        });
+    }
+}
 
 // ✅ Section Reveal Animation on Scroll
-document.addEventListener("DOMContentLoaded", function () {
+function initSectionReveal() {
     function revealSections() {
         const sections = document.querySelectorAll("section");
         sections.forEach((section) => {
@@ -110,11 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener("scroll", revealSections);
-    revealSections(); // Run on load in case sections are already in view
-});
+    revealSections();
+}
 
 // ✅ Flip Cards Functionality
-document.addEventListener("DOMContentLoaded", function () {
+function initFlipCards() {
     const flipCards = document.querySelectorAll(".flip-card");
     if (flipCards.length === 0) return;
 
@@ -124,46 +129,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!front || !back) return;
 
-        // Flip functionality
         card.addEventListener("click", function (event) {
             if (event.target.classList.contains("reveal-button")) return;
 
             flipCards.forEach(otherCard => {
                 if (otherCard !== card) {
                     otherCard.classList.remove("active");
-                    otherCard.style.zIndex = "1"; 
+                    otherCard.style.zIndex = "1";
                 }
             });
 
             card.classList.toggle("active");
-            card.style.zIndex = "10"; 
+            card.style.zIndex = "10";
         });
     });
 
-    // ✅ Reveal Button Functionality
+    // Reveal Button Functionality
     document.querySelectorAll(".reveal-button").forEach(button => {
         button.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevent closing the card
-            const imageUrl = this.getAttribute("data-image"); 
+            event.stopPropagation();
+            const imageUrl = this.getAttribute("data-image");
             if (imageUrl) {
-                window.open(imageUrl, "_blank"); // Open image in a new tab
+                window.open(imageUrl, "_blank");
             }
         });
     });
 
-    // ✅ Close the Card when Clicking Outside
+    // Close the Card when Clicking Outside
     document.addEventListener("click", function (event) {
         flipCards.forEach(card => {
-            if (!card.contains(event.target) && !event.target.classList.contains("reveal-button")) {
+            if (!card.contains(event.target)) {
                 card.classList.remove("active");
-                card.style.zIndex = "1"; 
+                card.style.zIndex = "1";
             }
         });
     });
-});
+}
 
 // ✅ Flip Cards Reveal on Scroll
-document.addEventListener("DOMContentLoaded", function () {
+function initFlipCardReveal() {
     const flipCards = document.querySelectorAll(".flip-card");
     function revealOnScroll() {
         flipCards.forEach((card) => {
@@ -178,57 +182,120 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
-});
-document.addEventListener("DOMContentLoaded", function () {
+}
+
+// ✅ Certificate Modal
+function initCertificateModal() {
     const modal = document.getElementById("certificateModal");
     const modalImg = document.getElementById("certificateImage");
     const closeBtn = document.querySelector(".close");
 
-    // Function to show the certificate in modal
-    window.showCertificate = function (imageSrc) {
-        modal.style.display = "flex";
-        modalImg.src = imageSrc;
-        modalImg.classList.add("animate-zoom"); // Add zoom animation
-    };
+    if (modal && modalImg) {
+        window.showCertificate = function (imageSrc) {
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+            modalImg.classList.add("animate-zoom");
+        };
 
-    // Function to close the certificate modal
-    window.closeCertificate = function () {
-        modal.style.display = "none";
-        modalImg.classList.remove("animate-zoom"); // Remove animation after closing
-    };
+        window.closeCertificate = function () {
+            modal.style.display = "none";
+            modalImg.classList.remove("animate-zoom");
+        };
 
-    // Close the modal when clicking outside the image
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            closeCertificate();
-        }
-    });
-
-    // Smooth Scroll Effect for Navigation Links (Optional)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
-
-    // Fade-in Animation for Certifications Section
-    const certCards = document.querySelectorAll(".cert-card");
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("fade-in");
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                closeCertificate();
             }
         });
-    }, { threshold: 0.3 });
+    }
 
-    certCards.forEach(card => observer.observe(card));
-});
-//certificate 
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeCertificate);
+    }
+}
 
+// ✅ Fade-in Animation for Certifications
+function initCertificationAnimation() {
+    const certCards = document.querySelectorAll(".cert-card");
+    if (certCards.length > 0) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("fade-in");
+                }
+            });
+        }, { threshold: 0.3 });
+
+        certCards.forEach(card => observer.observe(card));
+    }
+}
+
+// ✅ Flip Card Function
 function flipCard(card) {
-    card.classList.toggle("flipped");
+    if (card) {
+        card.classList.toggle("flipped");
+    }
+}
+
+// ✅ Initialize Everything
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize typing animation
+    typingElement = document.querySelector(".typing-animation");
+    if (typingElement) {
+        setTimeout(type, 1000);
+    }
+
+    // Initialize all other components
+    initProgressBars();
+    initSmoothScroll();
+    initContactForm();
+    initSectionReveal();
+    initFlipCards();
+    initFlipCardReveal();
+    initCertificateModal();
+    initCertificationAnimation();
+
+    // Auto-redirect for thank-you page
+    if (window.location.pathname.includes("thank-you.html")) {
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 5000);
+    }
+});
+
+// ✅ Prevent Page Scroll on Load
+window.onload = function () {
+    window.scrollTo(0, 0);
+};
+document.addEventListener("DOMContentLoaded", function() {
+  // Animate vertical line
+  const line = document.querySelector('.vertical-line');
+  if (line) {
+    setTimeout(() => {
+      line.style.opacity = '1';
+      line.style.transition = 'opacity 1s ease-out';
+    }, 500);
   }
-  
+
+  // Set up scroll animations for cards
+  const cards = document.querySelectorAll('.flip-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  cards.forEach(card => observer.observe(card));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector("nav ul");
+
+    menuToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("show");
+    });
+});
