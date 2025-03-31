@@ -267,32 +267,7 @@ nav ul li a:hover {
   color: #ffffff;
 }
 
-.about-text p {
-  margin: 20px 0;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #c4c4c4;
-}
 
-.about-image img {
-  width: 400px;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 0 30px 10px rgba(0, 240, 255, 0.7);
-  border: 10px solid #0c1a25;
-  background: linear-gradient(145deg, #00f0ff, #7600ff);
-  padding: 5px;
-}
-
-.about-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #7600ff, #00f0ff);
-  border-radius: 50%;
-  padding: 15px;
-  box-shadow: 0 0 30px 15px rgba(0, 240, 255, 0.4);
-}
 @media (max-width: 768px) {
   .about {
     flex-direction: column-reverse;
