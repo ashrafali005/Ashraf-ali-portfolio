@@ -260,7 +260,12 @@ nav ul li a:hover {
   font-size: 1.2rem;
   line-height: 1.6;
 }
-
+.about-title {
+  color: #ffffff; /* Change to white to match "MY EXPERIENCE" */
+}
+.about-title span {
+  color: #00f0ff; /* Make "MY" the same color as "MY" in EXPERIENCE */
+}
 
 
 @media (max-width: 768px) {
