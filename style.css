@@ -245,6 +245,7 @@ nav ul li a:hover {
   text-align: center; /* Centers the text */
   min-height: 80vh; /* Adjust based on your layout */
   padding: 50px 20px; /* Adds spacing */
+  background-color: #0c1a25; /* Added from second code */
 }
 
 .about-text {
@@ -254,19 +255,30 @@ nav ul li a:hover {
 .about h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: #ffffff; /* Added from second code */
 }
 
 .about p {
   font-size: 1.2rem;
   line-height: 1.6;
 }
-.about-title {
-  color: #ffffff; /* Change to white to match "MY EXPERIENCE" */
-}
-.about-title span {
-  color: #00f0ff; /* Make "MY" the same color as "MY" in EXPERIENCE */
+
+.about-text span {
+  color: #00f0ff; /* Added from second code */
 }
 
+.about-text h3 {
+  font-size: 24px; /* Added from second code */
+  margin-top: 10px; /* Added from second code */
+  color: #ffffff; /* Added from second code */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about {
+      text-align: center; /* Keeps text centered on mobile */
+  }
+}
 
 @media (max-width: 768px) {
   .about {
