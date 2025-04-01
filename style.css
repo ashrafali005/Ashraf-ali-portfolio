@@ -896,7 +896,7 @@ body {
 }
 
 
-/* Center the Glimpses section with a vertical timeline */
+/* Ensure Glimpses Section is Visible */
 .timeline {
   position: relative;
   width: 100%;
@@ -904,38 +904,27 @@ body {
   justify-content: center;
 }
 
-/* Glimpses Title Styling */
-.glimpses-title {
-  text-transform: uppercase;
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
-  color: #ffffff; /* Set "GLIMPSES" to white */
-}
-
-.glimpses-title span {
-  color: #00f0ff; /* Make "MY" the same cyan color as in "MY EXPERIENCE" */
-}
-
-/* Vertical Line */
+/* Ensure Vertical Line is Always Visible */
 .vertical-line {
   position: absolute;
-  width: 3px; /* Cyberpunk look */
-  background-color: #00f7ff; /* Cyber Blue Theme */
+  width: 3px;
+  background-color: #00f7ff;
   top: 0;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1; /* Ensure it stays above the background */
 }
 
-/* Flip Cards Zig-Zag Layout */
+/* Flip Cards Stay Visible on Scroll */
 .my-glimpses-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px; /* Adjusted for better spacing */
+  gap: 30px;
   position: relative;
   width: 100%;
+  opacity: 1; /* Ensure visibility */
 }
 
 /* Flip Card Design */
@@ -944,86 +933,64 @@ body {
   height: 180px;
   perspective: 1000px;
   border-radius: 12px;
-  opacity: 0;
-  transform: translateY(20px); /* Reduced distance */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(0); /* Remove delayed scroll effect */
+  transition: opacity 0.6s ease-out;
+  opacity: 1; /* Ensure cards are visible immediately */
 }
 
-/* Flip Card Wrapper for Positioning */
+/* Fix Flip Card Positioning */
 .flip-card-wrapper {
   display: flex;
-  justify-content: center; /* Center around the vertical line */
+  justify-content: center;
   width: 100%;
   position: relative;
 }
 
-/* Adjust Flip Card Positioning */
-.flip-card-wrapper:nth-child(odd) {
-  justify-content: flex-start; /* Move left-side cards closer */
-  padding-left: 30%;
-}
-
+/* Keep Flip Cards Centered */
+.flip-card-wrapper:nth-child(odd),
 .flip-card-wrapper:nth-child(even) {
-  justify-content: flex-end; /* Move right-side cards closer */
-  padding-right: 30%;
+  justify-content: center;
+  padding: 0;
 }
 
-
-/* Move Cards Closer to Vertical Line */
-.flip-card.left {
-  align-self: flex-start;
-  transform: translateX(-30px); /* Fine-tuned position */
-}
-
-.flip-card.right {
-  align-self: flex-end;
-  transform: translateX(30px); /* Fine-tuned position */
-}
-
-/* Flip Card Reveal Animation */
+/* Show All Flip Cards on Scroll at the Same Time */
 .flip-card.reveal {
   opacity: 1;
-  transform: translateX(0) translateY(0);
+  transform: translateY(0);
 }
 
-/* Smooth Entry Animation */
+/* Remove Delayed Animation for Simultaneous Appearance */
 @keyframes fadeInUp {
   from {
-      opacity: 0;
-      transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Delayed Animation for Each Card */
-.flip-card:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.2s forwards; }
-.flip-card:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.4s forwards; }
-.flip-card:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.6s forwards; }
-.flip-card:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.8s forwards; }
+/* Apply Animation to All Cards at Once */
+.flip-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Keep Vertical Line Visible on Mobile */
 @media (max-width: 768px) {
-  .my-glimpses-container {
-    gap: 20px;
-  }
-  
-  .flip-card-wrapper:nth-child(odd),
-  .flip-card-wrapper:nth-child(even) {
-    justify-content: center;
-    padding: 0;
-  }
-  
   .vertical-line {
-    display: none;
+    display: block;
+    left: 50%;
+    width: 2px;
   }
-  
+
   .flip-card {
     width: 90%;
     height: auto;
     min-height: 180px;
   }
 }
+
 /* Projects Section */
 .projects-section {
   width: 80%;
