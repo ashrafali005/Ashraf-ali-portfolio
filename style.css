@@ -902,6 +902,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  padding: 40px 0;
 }
 
 /* Vertical Line */
@@ -916,7 +917,7 @@ body {
   z-index: 1;
 }
 
-/* Flip Cards Zig-Zag Layout */
+/* Flip Cards Container */
 .my-glimpses-container {
   display: flex;
   flex-direction: column;
@@ -924,27 +925,27 @@ body {
   gap: 30px;
   position: relative;
   width: 100%;
-  opacity: 1; /* Ensure visibility */
+  opacity: 1;
 }
 
-/* Flip Card Wrapper for Zig-Zag Positioning */
+/* Flip Card Wrapper - Adjusted for closer positioning */
 .flip-card-wrapper {
   display: flex;
   width: 100%;
   position: relative;
-  opacity: 1; /* Changed from 0 to 1 for immediate visibility */
-  transform: translateY(0); /* Changed from 30px to 0 */
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Left & Right Positioning */
+/* New positioning to bring cards closer to the line */
 .flip-card-wrapper:nth-child(odd) {
   justify-content: flex-start;
-  padding-left: 10%;
+  padding-left: calc(50% - 160px); /* Cards will be 160px left of center */
 }
 
 .flip-card-wrapper:nth-child(even) {
   justify-content: flex-end;
-  padding-right: 10%;
+  padding-right: calc(50% - 160px); /* Cards will be 160px right of center */
 }
 
 /* Flip Card */
@@ -953,17 +954,13 @@ body {
   height: 200px;
   perspective: 1000px;
   border-radius: 12px;
-  opacity: 1; /* Ensure cards are visible immediately */
-  animation: fadeInUp 0.6s ease-out forwards; /* Added animation */
-}
-
-/* Show Cards - now redundant but kept for potential JS use */
-.flip-card-wrapper.show {
   opacity: 1;
-  transform: translateY(0);
+  animation: fadeInUp 0.6s ease-out forwards;
+  position: relative;
+  z-index: 2; /* Ensure cards appear above the vertical line */
 }
 
-/* Animation for all cards */
+/* Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -975,23 +972,29 @@ body {
   }
 }
 
-/* Responsive Fixes */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .flip-card-wrapper {
     justify-content: center;
-    padding: 0;
+    padding: 0 20px !important; /* Force equal small padding */
   }
 
-  .vertical-line {
-    display: block;
-    left: 50%;
-    width: 2px;
+  .flip-card-wrapper:nth-child(odd),
+  .flip-card-wrapper:nth-child(even) {
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
   }
 
   .flip-card {
-    width: 90%;
+    width: 100%;
+    max-width: 320px;
     height: auto;
     min-height: 180px;
+  }
+
+  .vertical-line {
+    width: 2px;
   }
 }
 /* Projects Section */
