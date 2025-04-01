@@ -925,27 +925,36 @@ body {
   gap: 30px;
   position: relative;
   width: 100%;
-  opacity: 1;
 }
 
-/* Flip Card Wrapper - Adjusted for closer positioning */
+/* Flip Card Wrapper - Initial State */
 .flip-card-wrapper {
   display: flex;
   width: 100%;
   position: relative;
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.6s ease-out;
 }
 
-/* New positioning to bring cards closer to the line */
+/* Initial positions for scroll animation */
 .flip-card-wrapper:nth-child(odd) {
   justify-content: flex-start;
-  padding-left: calc(50% - 160px); /* Cards will be 160px left of center */
+  padding-left: 30%;
+  transform: translateX(-50px);
 }
 
 .flip-card-wrapper:nth-child(even) {
   justify-content: flex-end;
-  padding-right: calc(50% - 160px); /* Cards will be 160px right of center */
+  padding-right: 30%;
+  transform: translateX(50px);
+}
+
+/* Animated State When Scrolled Into View */
+.flip-card-wrapper.show {
+  opacity: 1;
+  transform: translateX(0);
+  padding-left: calc(50% - 160px); /* Final position - closer to line */
+  padding-right: calc(50% - 160px); /* Final position - closer to line */
 }
 
 /* Flip Card */
@@ -954,29 +963,23 @@ body {
   height: 200px;
   perspective: 1000px;
   border-radius: 12px;
-  opacity: 1;
-  animation: fadeInUp 0.6s ease-out forwards;
   position: relative;
-  z-index: 2; /* Ensure cards appear above the vertical line */
-}
-
-/* Animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  z-index: 2;
+  /* Remove the fadeInUp animation as we're using scroll-triggered animation */
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .flip-card-wrapper {
     justify-content: center;
-    padding: 0 20px !important; /* Force equal small padding */
+    padding: 0 20px !important;
+    transform: translateY(30px) !important;
+  }
+
+  .flip-card-wrapper.show {
+    transform: translateY(0) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
   .flip-card-wrapper:nth-child(odd),

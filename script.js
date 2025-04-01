@@ -299,3 +299,20 @@ document.addEventListener("DOMContentLoaded", function () {
         navMenu.classList.toggle("show");
     });
 });
+
+// Scroll animation trigger
+document.addEventListener('DOMContentLoaded', function() {
+    const cardWrappers = document.querySelectorAll('.flip-card-wrapper');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+  
+    cardWrappers.forEach(wrapper => {
+      observer.observe(wrapper);
+    });
+  });
