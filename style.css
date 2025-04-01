@@ -895,8 +895,7 @@ body {
   pointer-events: auto; /* Ensures it can be clicked */
 }
 
-
-/* MY GLIMPSES SECTION SPECIFIC STYLES */
+/* Timeline Container */
 .timeline {
   position: relative;
   width: 100%;
@@ -905,8 +904,8 @@ body {
   padding: 40px 0;
 }
 
-/* Vertical Line - Only for this section */
-.timeline .vertical-line {
+/* Vertical Line */
+.vertical-line {
   position: absolute;
   width: 3px;
   background-color: #00f7ff;
@@ -918,7 +917,7 @@ body {
 }
 
 /* Flip Cards Container */
-.timeline .my-glimpses-container {
+.my-glimpses-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -927,38 +926,40 @@ body {
   width: 100%;
 }
 
-/* Flip Card Wrapper */
-.timeline .flip-card-wrapper {
+/* Flip Card Wrapper - Initial State */
+.flip-card-wrapper {
   display: flex;
   width: 100%;
   position: relative;
   opacity: 0;
-  transition: all 0.8s ease-out; /* Slightly slower animation */
+  transform: translateX(30px);
+  transition: all 0.6s ease-out;
 }
 
-/* Initial positions */
-.timeline .flip-card-wrapper:nth-child(odd) {
+/* Left Cards - Initial Position */
+.flip-card-wrapper:nth-child(odd) {
   justify-content: flex-start;
-  padding-left: calc(50% - 180px); /* Start position */
-  transform: translateX(-40px);
+  padding-left: 30%;
+  transform: translateX(-30px);
 }
 
-.timeline .flip-card-wrapper:nth-child(even) {
+/* Right Cards - Initial Position */
+.flip-card-wrapper:nth-child(even) {
   justify-content: flex-end;
-  padding-right: calc(50% - 180px); /* Start position */
-  transform: translateX(40px);
+  padding-right: 30%;
+  transform: translateX(30px);
 }
 
-/* Animated State */
-.timeline .flip-card-wrapper.show {
+/* Animated State When Scrolled Into View */
+.flip-card-wrapper.show {
   opacity: 1;
   transform: translateX(0);
-  padding-left: calc(50% - 150px); /* Final position - 150px from center */
-  padding-right: calc(50% - 150px); /* Final position - 150px from center */
+  padding-left: calc(50% - 160px); /* Final position - closer to line */
+  padding-right: calc(50% - 160px); /* Final position - closer to line */
 }
 
 /* Flip Card */
-.timeline .flip-card {
+.flip-card {
   width: 280px;
   height: 200px;
   perspective: 1000px;
@@ -969,26 +970,23 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .timeline .flip-card-wrapper {
+  .flip-card-wrapper {
     justify-content: center;
     padding: 0 20px !important;
-    transform: translateY(40px) !important;
+    transform: translateY(30px) !important;
   }
 
-  .timeline .flip-card-wrapper.show {
+  .flip-card-wrapper.show {
     transform: translateY(0) !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 
-  .timeline .flip-card {
+  .flip-card {
     width: 100%;
     max-width: 320px;
+    height: auto;
     min-height: 180px;
-  }
-
-  .timeline .vertical-line {
-    width: 2px;
   }
 }
 /* Projects Section */
