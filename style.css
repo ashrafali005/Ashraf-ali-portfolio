@@ -895,7 +895,7 @@ body {
   pointer-events: auto; /* Ensures it can be clicked */
 }
 
-/* Timeline Container */
+/* MY GLIMPSES Timeline Container */
 .timeline {
   position: relative;
   width: 100%;
@@ -904,8 +904,8 @@ body {
   padding: 40px 0;
 }
 
-/* Vertical Line */
-.vertical-line {
+/* Vertical Line - Adjusted to not overlap */
+.timeline .vertical-line {
   position: absolute;
   width: 3px;
   background-color: #00f7ff;
@@ -913,11 +913,11 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 0; /* Changed to 0 to appear behind cards */
 }
 
 /* Flip Cards Container */
-.my-glimpses-container {
+.timeline .my-glimpses-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -927,64 +927,65 @@ body {
 }
 
 /* Flip Card Wrapper - Initial State */
-.flip-card-wrapper {
+.timeline .flip-card-wrapper {
   display: flex;
   width: 100%;
   position: relative;
   opacity: 0;
   transform: translateX(30px);
   transition: all 0.6s ease-out;
+  z-index: 2; /* Ensure cards stay above line */
 }
 
-/* Left Cards - Initial Position */
-.flip-card-wrapper:nth-child(odd) {
+/* Card Positioning - Adjusted margins */
+.timeline .flip-card-wrapper:nth-child(odd) {
   justify-content: flex-start;
-  padding-left: 30%;
+  padding-left: calc(50% - 170px); /* Adjusted from 30% */
   transform: translateX(-30px);
 }
 
-/* Right Cards - Initial Position */
-.flip-card-wrapper:nth-child(even) {
+.timeline .flip-card-wrapper:nth-child(even) {
   justify-content: flex-end;
-  padding-right: 30%;
+  padding-right: calc(50% - 170px); /* Adjusted from 30% */
   transform: translateX(30px);
 }
 
-/* Animated State When Scrolled Into View */
-.flip-card-wrapper.show {
+/* Animated State - Final position */
+.timeline .flip-card-wrapper.show {
   opacity: 1;
   transform: translateX(0);
-  padding-left: calc(50% - 160px); /* Final position - closer to line */
-  padding-right: calc(50% - 160px); /* Final position - closer to line */
+  padding-left: calc(50% - 170px); /* Consistent with initial */
+  padding-right: calc(50% - 170px); /* Consistent with initial */
 }
 
-/* Flip Card */
-.flip-card {
+/* Flip Card - Added margin to prevent overlap */
+.timeline .flip-card {
   width: 280px;
   height: 200px;
   perspective: 1000px;
   border-radius: 12px;
   position: relative;
   z-index: 2;
+  margin: 0 10px; /* Added margin */
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .flip-card-wrapper {
+  .timeline .flip-card-wrapper {
     justify-content: center;
-    padding: 0 20px !important;
+    padding: 0 25px !important; /* Slightly increased padding */
     transform: translateY(30px) !important;
   }
 
-  .flip-card-wrapper.show {
+  .timeline .flip-card-wrapper.show {
     transform: translateY(0) !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
   }
 
-  .flip-card {
+  .timeline .flip-card {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px; /* Slightly reduced max-width */
     height: auto;
     min-height: 180px;
   }
