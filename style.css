@@ -894,6 +894,7 @@ body {
   z-index: 2; /* Places the button above other elements */
   pointer-events: auto; /* Ensures it can be clicked */
 }
+
 /* Timeline Container */
 .timeline {
   position: relative;
@@ -964,18 +965,18 @@ body {
   z-index: 2;
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .flip-card-wrapper {
     justify-content: center;
     padding: 0 20px !important;
     transform: translateY(30px) !important;
+    width: 100%;
   }
 
   .flip-card-wrapper.show {
     transform: translateY(0) !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 
   .flip-card {
@@ -984,7 +985,12 @@ body {
     height: auto;
     min-height: 180px;
   }
+
+  .vertical-line {
+    left: 20px; /* Moves the vertical line to the side for better spacing */
+  }
 }
+
 
 /* Projects Section */
 .projects-section {
