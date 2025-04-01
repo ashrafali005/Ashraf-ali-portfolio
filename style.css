@@ -896,7 +896,7 @@ body {
 }
 
 
-/* Ensure Glimpses Section is Visible */
+/* Timeline Container */
 .timeline {
   position: relative;
   width: 100%;
@@ -904,7 +904,7 @@ body {
   justify-content: center;
 }
 
-/* Ensure Vertical Line is Always Visible */
+/* Vertical Line */
 .vertical-line {
   position: absolute;
   width: 3px;
@@ -913,10 +913,10 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1; /* Ensure it stays above the background */
+  z-index: 1;
 }
 
-/* Flip Cards Stay Visible on Scroll */
+/* Flip Cards Zig-Zag Layout */
 .my-glimpses-container {
   display: flex;
   flex-direction: column;
@@ -927,39 +927,43 @@ body {
   opacity: 1; /* Ensure visibility */
 }
 
-/* Flip Card Design */
-.flip-card {
-  width: 260px;
-  height: 180px;
-  perspective: 1000px;
-  border-radius: 12px;
-  transform: translateY(0); /* Remove delayed scroll effect */
-  transition: opacity 0.6s ease-out;
-  opacity: 1; /* Ensure cards are visible immediately */
-}
-
-/* Fix Flip Card Positioning */
+/* Flip Card Wrapper for Zig-Zag Positioning */
 .flip-card-wrapper {
   display: flex;
-  justify-content: center;
   width: 100%;
   position: relative;
+  opacity: 1; /* Changed from 0 to 1 for immediate visibility */
+  transform: translateY(0); /* Changed from 30px to 0 */
 }
 
-/* Keep Flip Cards Centered */
-.flip-card-wrapper:nth-child(odd),
+/* Left & Right Positioning */
+.flip-card-wrapper:nth-child(odd) {
+  justify-content: flex-start;
+  padding-left: 10%;
+}
+
 .flip-card-wrapper:nth-child(even) {
-  justify-content: center;
-  padding: 0;
+  justify-content: flex-end;
+  padding-right: 10%;
 }
 
-/* Show All Flip Cards on Scroll at the Same Time */
-.flip-card.reveal {
+/* Flip Card */
+.flip-card {
+  width: 280px;
+  height: 200px;
+  perspective: 1000px;
+  border-radius: 12px;
+  opacity: 1; /* Ensure cards are visible immediately */
+  animation: fadeInUp 0.6s ease-out forwards; /* Added animation */
+}
+
+/* Show Cards - now redundant but kept for potential JS use */
+.flip-card-wrapper.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Remove Delayed Animation for Simultaneous Appearance */
+/* Animation for all cards */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -971,13 +975,13 @@ body {
   }
 }
 
-/* Apply Animation to All Cards at Once */
-.flip-card {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-/* Keep Vertical Line Visible on Mobile */
+/* Responsive Fixes */
 @media (max-width: 768px) {
+  .flip-card-wrapper {
+    justify-content: center;
+    padding: 0;
+  }
+
   .vertical-line {
     display: block;
     left: 50%;
@@ -990,7 +994,6 @@ body {
     min-height: 180px;
   }
 }
-
 /* Projects Section */
 .projects-section {
   width: 80%;
