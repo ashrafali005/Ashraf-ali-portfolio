@@ -922,7 +922,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 40px; /* Increased gap for better spacing */
   position: relative;
   width: 100%;
 }
@@ -933,31 +933,32 @@ body {
   width: 100%;
   position: relative;
   opacity: 0;
-  transition: all 0.6s ease-out;
+  transition: all 1s ease-out; /* Slower transition (1s instead of 0.6s) */
 }
 
 /* Initial positions for scroll animation */
 .flip-card-wrapper:nth-child(odd) {
   justify-content: flex-start;
-  padding-left: 30%;
-  transform: translateX(-50px);
+  padding-left: 35%;
+  transform: translateX(-80px) translateY(40px); /* Diagonal starting position */
 }
 
 .flip-card-wrapper:nth-child(even) {
   justify-content: flex-end;
-  padding-right: 30%;
-  transform: translateX(50px);
+  padding-right: 35%;
+  transform: translateX(80px) translateY(40px); /* Diagonal starting position */
 }
 
 /* Animated State When Scrolled Into View */
 .flip-card-wrapper.show {
   opacity: 1;
-  transform: translateX(0);
-  padding-left: calc(50% - 160px); /* Final position - closer to line */
-  padding-right: calc(50% - 160px); /* Final position - closer to line */
+  transform: translateX(0) translateY(0);
+  padding-left: calc(50% - 140px); /* Final position */
+  padding-right: calc(50% - 140px); /* Final position */
+  transition-delay: 0.2s; /* Slight stagger effect */
 }
 
-/* Flip Card */
+/* Flip Card Styling */
 .flip-card {
   width: 280px;
   height: 200px;
@@ -965,7 +966,9 @@ body {
   border-radius: 12px;
   position: relative;
   z-index: 2;
-  /* Remove the fadeInUp animation as we're using scroll-triggered animation */
+  background: #fff; /* Add your card background */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
 /* Mobile Responsiveness */
@@ -973,33 +976,28 @@ body {
   .flip-card-wrapper {
     justify-content: center;
     padding: 0 20px !important;
-    transform: translateY(30px) !important;
+    transform: translateY(60px) !important; /* Bigger initial offset */
   }
 
   .flip-card-wrapper.show {
     transform: translateY(0) !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
-  }
-
-  .flip-card-wrapper:nth-child(odd),
-  .flip-card-wrapper:nth-child(even) {
-    padding-left: 20px;
-    padding-right: 20px;
-    justify-content: center;
+    transition-duration: 1.2s; /* Even slower on mobile */
   }
 
   .flip-card {
     width: 100%;
     max-width: 320px;
-    height: auto;
     min-height: 180px;
   }
-
-  .vertical-line {
-    width: 2px;
-  }
 }
+
+/* Add slight delay between cards for cascading effect */
+.flip-card-wrapper:nth-child(1).show { transition-delay: 0.1s; }
+.flip-card-wrapper:nth-child(2).show { transition-delay: 0.3s; }
+.flip-card-wrapper:nth-child(3).show { transition-delay: 0.5s; }
+.flip-card-wrapper:nth-child(4).show { transition-delay: 0.7s; }
 /* Projects Section */
 .projects-section {
   width: 80%;
