@@ -895,15 +895,51 @@ body {
   pointer-events: auto; /* Ensures it can be clicked */
 }
 
-/* My Glimpses Title - Updated to match h3 styling */
-.my-glimpses-title {
-  color: #00f0ff; /* Same cyan color as your h3 */
-  font-size: 24px; /* Slightly larger than h3 (20px) */
-  margin-bottom: 30px; /* Larger bottom margin for title */
+/* Style for MY GLIMPSES */
+.glimpses-title {
+  font-size: 24px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: bold; /* Added for emphasis */
+  font-weight: bold;
+  color: white; /* 'GLIMPSES' should be white */
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block; /* Ensures width wraps text */
+  padding-bottom: 5px; /* Adds space before underline */
+}
+
+/* Cyan highlight for "MY" */
+.glimpses-title span {
+  color: #00f0ff; /* Cyan highlight */
+  font-weight: bold;
+}
+
+/* Normal Thin Underline */
+.glimpses-title::after {
+  content: "";
+  display: block;
+  width: 100%; /* Extends across the text */
+  height: 1px; /* Normal thin underline */
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Remove Unwanted Borders */
+.glimpses-title::before {
+  display: none;
+}
+
+/* Hover Effect - Subtle Glow */
+.glimpses-title:hover span {
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.7);
+}
+
+.glimpses-title:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 .timeline {
