@@ -895,7 +895,17 @@ body {
   pointer-events: auto; /* Ensures it can be clicked */
 }
 
-/* Timeline Container */
+/* My Glimpses Title - Updated to match h3 styling */
+.my-glimpses-title {
+  color: #00f0ff; /* Same cyan color as your h3 */
+  font-size: 24px; /* Slightly larger than h3 (20px) */
+  margin-bottom: 30px; /* Larger bottom margin for title */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold; /* Added for emphasis */
+}
+
 .timeline {
   position: relative;
   width: 100%;
@@ -1024,7 +1034,124 @@ body {
 .projects-section h2 {
   text-transform: uppercase;
   font-size: 36px;
-  margin-bottom: 50px;
+  margin-bottom: 50px;/* Timeline Container */
+.timeline {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+/* Vertical Line - Updated to match experience section color */
+.vertical-line {
+  position: absolute;
+  width: 3px;
+  background-color: #00f0ff; /* Changed from #00f7ff to #00f0ff */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Flip Cards Container */
+.my-glimpses-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  width: 100%;
+}
+
+/* Flip Card Wrapper - Initial (Hidden and Moved) */
+.flip-card-wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+/* Left Side (Move in from Left) */
+.flip-card-wrapper:nth-child(odd) {
+  justify-content: flex-start;
+  padding-left: calc(65% - 200px); /* Adjusted for zig-zag */
+  transform: translateX(-50px);
+}
+
+/* Right Side (Move in from Right) */
+.flip-card-wrapper:nth-child(even) {
+  justify-content: flex-end;
+  padding-right: calc(65% - 200px); /* Adjusted for zig-zag */
+  transform: translateX(50px);
+}
+
+/* Show Animation - Scroll into View */
+.flip-card-wrapper.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Flip Card */
+.flip-card {
+  width: 280px;
+  height: 200px;
+  perspective: 1000px;
+  border-radius: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .timeline {
+    padding: 20px 0;
+  }
+  
+  .vertical-line {
+    left: 30px; /* Move line to the left side */
+    transform: none;
+    background-color: #00f0ff; /* Consistent color in mobile */
+  }
+  
+  .flip-card-wrapper {
+    justify-content: flex-start !important; /* Override odd/even */
+    padding-left: 60px !important; /* Space for the line */
+    padding-right: 0 !important;
+    transform: translateX(0);
+  }
+  
+  .flip-card-wrapper:nth-child(odd),
+  .flip-card-wrapper:nth-child(even) {
+    transform: translateX(-20px); /* Consistent animation from left */
+  }
+  
+  .flip-card-wrapper.show {
+    transform: translateX(0);
+  }
+  
+  .flip-card {
+    width: calc(100% - 80px); /* Full width minus padding */
+    max-width: 280px; /* Keep maximum size */
+  }
+}
+
+@media (max-width: 480px) {
+  .flip-card {
+    height: 180px; /* Slightly smaller cards */
+  }
+  
+  .vertical-line {
+    left: 20px; /* Move line slightly closer */
+    background-color: #00f0ff; /* Consistent color in mobile */
+  }
+  
+  .flip-card-wrapper {
+    padding-left: 50px !important;
+  }
+}
   position: relative;
   display: inline-block;
 }
@@ -1180,10 +1307,6 @@ body {
     padding: 100px 20px;
     text-align: center;
 }
-
-
-
-
 
 /* Certification Card */
 .cert-card {
