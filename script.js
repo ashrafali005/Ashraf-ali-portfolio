@@ -1,5 +1,5 @@
 // Typing Animation
-const words = ["Cybersecurity Engineer", "Web Developer", "Ethical Hacker", "Network Security"];
+const words = ["Cybersecurity Engineer ", "Web Developer", "Ethical Hacker", "Network Security"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -10,34 +10,24 @@ function type() {
 
     const currentWord = words[wordIndex];
     const currentText = currentWord.substring(0, charIndex);
-
     typingElement.textContent = currentText;
 
-    if (!isDeleting && charIndex < currentWord.length) {
-        // Typing forward
-        charIndex++;
-        setTimeout(type, 250);  // Slower typing speed
-    } else if (isDeleting && charIndex > 0) {
-        // Deleting (now even slower)
-        charIndex--;
-        setTimeout(type, 180);  // Slower deleting speed
-    } else {
-        // Switch between typing and deleting
-        isDeleting = !isDeleting;
+    const speed = 100; // Unified typing/deleting speed
 
+    if (!isDeleting && charIndex < currentWord.length) {
+        charIndex++;
+        setTimeout(type, speed);
+    } else if (isDeleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(type, speed);
+    } else {
+        isDeleting = !isDeleting;
         if (!isDeleting) {
             wordIndex = (wordIndex + 1) % words.length;
         }
-
-        setTimeout(type, isDeleting ? 2000 : 1200);  // Longer pauses
+        setTimeout(type, 1000); // Pause before next word or deletion
     }
 }
-
-// Start the typing animation when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(type, 1200); // Slight delay before animation starts
-    initProgressBars();
-});
 
 // Skill Progress Bars (unchanged)
 function initProgressBars() {
@@ -317,4 +307,68 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  
+  const canvas = document.getElementById("starfield");
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);
+camera.position.z = 800;
+
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+const starCount = 1000;
+const geometry = new THREE.BufferGeometry();
+const positions = [];
+
+for (let i = 0; i < starCount; i++) {
+  positions.push(
+    (Math.random() - 0.5) * 2000,
+    (Math.random() - 0.5) * 2000,
+    (Math.random() - 0.5) * 2000
+  );
+}
+
+geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+const material = new THREE.PointsMaterial({ color: 0x00ffff, size: 2 });
+const points = new THREE.Points(geometry, material);
+scene.add(points);
+
+// Animation loop
+function animate() {
+  requestAnimationFrame(animate);
+  points.rotation.y += 0.0005;
+  renderer.render(scene, camera);
+}
+animate();
+
+// Resize
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  emailjs.init("4BvTGoGNU5Rgs_6Pu"); // ✅ replace with your public key
+
+  const form = document.getElementById("contactForm");
+  const responseMessage = document.getElementById("responseMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    responseMessage.textContent = "Sending...";
+
+    emailjs.sendForm("service_57sz11w", "template_9tsls1p", form)
+      .then(() => {
+        responseMessage.textContent = "✅ Message sent successfully!";
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        responseMessage.textContent = "❌ Failed to send message.";
+      });
+  });
+});
+
